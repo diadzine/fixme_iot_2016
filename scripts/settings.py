@@ -12,3 +12,7 @@ DEVICES = [
     {'id': '28-000004c0656e', 'label': 'water'},
 ]
 
+FOOD_SENSORS = [
+    {'channel': '17', 'label': 'wafers'},
+    {'channel': '23', 'label': 'tablets'},
+]
