@@ -1,0 +1,6 @@
+.bash*
+.profile
+.ssh
+.vim*
+.sqlite_history
+*/*.pyc
