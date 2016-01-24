@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 import os
-import glob
 import time
-import subprocess
 import settings
 import sqlite3
 
@@ -33,7 +31,7 @@ def read_temp(devicefile):
     if equals_pos != -1:
         temp_string = lines[1][equals_pos+2:]
         temp_c = float(temp_string) / 1000.0
-	return temp_c
+    return temp_c
 
 
 def log_temperatures(temps):
@@ -43,12 +41,14 @@ def log_temperatures(temps):
         curs = conn.cursor()
 
         for temp in temps:
-            curs.execute("INSERT INTO temperatures VALUES ((?), datetime('now'), (?))", (temp["id"], temp["value"],))
+            curs.execute(
+                "INSERT INTO temperatures VALUES ((?), datetime('now'), (?))",
+                (temp["id"], temp["value"],)
+            )
 
         # commit the changes
         conn.commit()
         conn.close()
-        
     except Exception as e:
         print 'Error: %s' % e
 
@@ -65,5 +65,3 @@ if __name__ == '__main__':
         log_temperatures(temps)
     except Exception as e:
         print 'Error: %s' % e
-
-
