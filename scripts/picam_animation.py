@@ -12,8 +12,10 @@ def cam_settings(camera):
 
 def capture_animated_gif(capture):
     cwd = os.getcwd()
-    if not os.path.exists(cwd+"/images"):
-        os.makedirs(cwd+"/images")
+    images_dir = os.path.join(cwd, '..', 'images')
+
+    if not os.path.exists(images_dir):
+        os.makedirs(images_dir)
 
     with picamera.PiCamera() as camera:
         cam_settings(camera)
@@ -25,12 +27,14 @@ def capture_animated_gif(capture):
         time.sleep(capture['interval'])
         # capture 10 frames.
         camera.capture_sequence((
-            'images/image%04d.png' % i
+            '../images/image%04d.png' % i
             for i in range(capture['images'])
             ), use_video_port=True, format='png')
         fps = capture['images'] / (time.time() - start)
         print('Captured 10 images at %.2ffps' % fps)
         camera.stop_preview()
+
+        os.system('convert -delay 30 ../images/*.png ../images/animation.gif')
 
 
 if __name__ == '__main__':
