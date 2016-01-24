@@ -17,4 +17,13 @@ FOOD_SENSORS = [
     {'channel': '23', 'label': 'tablets'},
 ]
 
-PICAM_PARAMS = ['hflip', 'vflip']
+PICAM_PARAMS = {
+    'hflip': True,
+    'vflip': True,
+    'resolution': (640, 480)
+}
+
+PICAM_CAPTURE = {
+    'interval': 0.2,
+    'images': 10,
+}
