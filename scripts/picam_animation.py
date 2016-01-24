@@ -39,7 +39,7 @@ def capture_animated_gif(capture):
             for i in range(capture['images'])
             ), use_video_port=True, format='png')
         fps = capture['images'] / (time.time() - start)
-        print('Captured 10 images at %.2ffps' % fps)
+        print('Captured %s images at %.2ffps' % (capture['images'], fps))
         camera.stop_preview()
 
         os.system('convert -delay 30 ../images/*.png ../images/animation.gif')
