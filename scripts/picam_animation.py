@@ -42,7 +42,7 @@ def capture_animated_gif(capture):
         print('Captured 10 images at %.2ffps' % fps)
         camera.stop_preview()
 
-        os.system('convert -delay 10 ../images/*.png ../images/animation.gif')
+        os.system('convert -delay 30 ../images/*.png ../images/animation.gif')
 
 
 if __name__ == '__main__':
