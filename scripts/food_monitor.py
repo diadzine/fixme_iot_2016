@@ -70,4 +70,3 @@ if __name__ == '__main__':
         setup_sensors()
     except Exception as e:
         print 'Error: %s' % e
-S
