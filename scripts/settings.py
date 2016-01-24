@@ -16,3 +16,5 @@ FOOD_SENSORS = [
     {'channel': '17', 'label': 'wafers'},
     {'channel': '23', 'label': 'tablets'},
 ]
+
+PICAM_PARAMS = ['hflip', 'vflip']
