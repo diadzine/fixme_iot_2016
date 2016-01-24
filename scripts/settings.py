@@ -20,7 +20,7 @@ FOOD_SENSORS = [
 PICAM_PARAMS = {
     'hflip': True,
     'vflip': True,
-    'resolution': (640, 480)
+    'resolution': (400, 400)
 }
 
 PICAM_CAPTURE = {
