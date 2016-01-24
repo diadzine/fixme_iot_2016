@@ -14,12 +14,12 @@ FOOD_SENSORS = getattr(settings, 'FOOD_SENSORS', None)
 def setup_sensors():
     for sensor in FOOD_SENSORS:
         GPIO.setup(
-            sensor.channel,
+            sensor['channel'],
             GPIO.IN,
             pull_up_down=GPIO.PUD_DOWN
         )
         GPIO.add_event_detect(
-            sensor.channel,
+            sensor['channel'],
             GPIO.BOTH,
             callback=food_callback,
             bouncetime=200
@@ -70,3 +70,4 @@ if __name__ == '__main__':
         setup_sensors()
     except Exception as e:
         print 'Error: %s' % e
+S
