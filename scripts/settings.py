@@ -25,5 +25,5 @@ PICAM_PARAMS = {
 
 PICAM_CAPTURE = {
     'interval': 0.2,
-    'images': 20,
+    'images': 10,
 }
