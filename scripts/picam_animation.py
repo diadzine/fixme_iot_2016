@@ -6,7 +6,7 @@ import picamera
 
 
 def cam_settings(camera):
-    for k, param in getattr(settings, 'PICAM_PARAMS', None):
+    for k, param in getattr(settings, 'PICAM_PARAMS', None).items():
         setattr(camera, k, param)
 
 
