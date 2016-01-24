@@ -68,5 +68,8 @@ def food_callback(channel):
 if __name__ == '__main__':
     try:
         setup_sensors()
+        while True:
+            pass
+            # running
     except Exception as e:
         print 'Error: %s' % e
