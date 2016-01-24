@@ -1,6 +1,4 @@
 #!/usr/bin/env python
-import os
-import glob
 import time
 import subprocess
 import settings
@@ -53,6 +51,7 @@ def food_up(channel):
 
 def food_back(channel):
     food_state_log(channel, 'BACK')
+    subprocess.call("./picam_animation.py")
 
 
 def food_callback(channel):
