@@ -17,6 +17,14 @@ def capture_animated_gif(capture):
     if not os.path.exists(images_dir):
         os.makedirs(images_dir)
 
+    for the_file in os.listdir(images_dir):
+        file_path = os.path.join(images_dir, the_file)
+        try:
+            if os.path.isfile(file_path):
+                os.unlink(file_path)
+        except Exception, e:
+            print e
+
     with picamera.PiCamera() as camera:
         cam_settings(camera)
 
@@ -34,7 +42,7 @@ def capture_animated_gif(capture):
         print('Captured 10 images at %.2ffps' % fps)
         camera.stop_preview()
 
-        os.system('convert -delay 30 ../images/*.png ../images/animation.gif')
+        os.system('convert -delay 10 ../images/*.png ../images/animation.gif')
 
 
 if __name__ == '__main__':
